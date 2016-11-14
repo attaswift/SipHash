@@ -103,6 +103,7 @@ public extension SipHash {
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Double>.size))
     }
 
+    #if arch(i386) || arch(x86_64)
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
@@ -110,4 +111,5 @@ public extension SipHash {
         var data = value
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Float80>.size))
     }
+    #endif
 }
