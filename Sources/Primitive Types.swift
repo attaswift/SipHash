@@ -18,6 +18,14 @@ public extension SipHash {
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
+    public mutating func add(_ value: Int) {
+        var data = value
+        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int>.size))
+    }
+
+    /// Add `value` to this hash.
+    ///
+    /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func add(_ value: UInt) {
         var data = value
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt>.size))
