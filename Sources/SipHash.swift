@@ -4,18 +4,17 @@
 //
 //  Created by Károly Lőrentey on 2016-03-08.
 //  Copyright © 2016 Károly Lőrentey.
-//
-//  This file contains an independent reimplementation of [SipHash](https://131002.net/siphash) for Swift, 
-//  suitable for use in projects outside the Swift standard library.
-//  (The Swift stdlib already includes SipHash; unfortunately the API is not public.)
-//
-//  SipHash was invented by Jean-Philippe Aumasson and Daniel J. Bernstein.
 
 @inline(__always)
 private func rotateLeft(_ value: UInt64, by amount: UInt64) -> UInt64 {
     return (value << amount) | (value >> (64 - amount))
 }
 
+/// An implementation of the [SipHash](https://131002.net/siphash) hashing algorithm,
+/// suitable for use in projects outside the Swift standard library.
+/// (The Swift stdlib already includes SipHash; unfortunately its API is not public.)
+///
+/// SipHash was invented by Jean-Philippe Aumasson and Daniel J. Bernstein.
 public struct SipHash {
     /// The number of compression rounds.
     private static let c = 2
@@ -24,7 +23,7 @@ public struct SipHash {
 
     /// The default key, used by the default initializer.
     /// Each process has a unique key, chosen randomly when the first instance of `SipHash` is initialized.
-    private static let key: (UInt64, UInt64) = (randomUInt64(), randomUInt64())
+    static let key: (UInt64, UInt64) = (randomUInt64(), randomUInt64())
 
     /// Word 0 of the internal state, initialized to ASCII encoding of "somepseu".
     var v0: UInt64 = 0x736f6d6570736575
@@ -36,13 +35,13 @@ public struct SipHash {
     var v3: UInt64 = 0x7465646279746573
 
     /// The current partial word, not yet mixed in with the internal state.
-    var tailBytes: UInt64 = 0
+    var pendingBytes: UInt64 = 0
     /// The number of bytes that are currently pending in `tailBytes`. Guaranteed to be between 0 and 7.
-    var tailByteCount = 0
+    var pendingByteCount = 0
     /// The number of bytes collected so far, or -1 if the hash value has already been finalized.
     var byteCount = 0
 
-    /// Initialize a new instance with the default key, generated randomly.
+    /// Initialize a new instance with the default key, generated randomly the first time this initializer is called.
     public init() {
         self.init(k0: SipHash.key.0, k1: SipHash.key.1)
     }
@@ -86,10 +85,10 @@ public struct SipHash {
 
     mutating func _finalize() -> UInt64 {
         precondition(byteCount >= 0)
-        tailBytes |= UInt64(byteCount) << 56
+        pendingBytes |= UInt64(byteCount) << 56
         byteCount = -1
 
-        compressWord(tailBytes)
+        compressWord(pendingBytes)
 
         v2 ^= 0xff
         for _ in 0 ..< SipHash.d {
@@ -104,41 +103,44 @@ public struct SipHash {
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func add(_ buffer: UnsafeRawBufferPointer) {
         precondition(byteCount >= 0)
+
+        // Use the first couple of bytes to complete the pending word.
         var i = 0
-        if tailByteCount > 0 {
-            let readCount = min(buffer.count, 8 - tailByteCount)
-            tailBytes <<= UInt64(readCount << 3)
+        if pendingByteCount > 0 {
+            let readCount = min(buffer.count, 8 - pendingByteCount)
+            var m: UInt64 = 0
             switch readCount {
             case 7:
-                tailBytes |= UInt64(buffer[6]) << 48
+                m |= UInt64(buffer[6]) << 48
                 fallthrough
             case 6:
-                tailBytes |= UInt64(buffer[5]) << 40
+                m |= UInt64(buffer[5]) << 40
                 fallthrough
             case 5:
-                tailBytes |= UInt64(buffer[4]) << 32
+                m |= UInt64(buffer[4]) << 32
                 fallthrough
             case 4:
-                tailBytes |= UInt64(buffer[3]) << 24
+                m |= UInt64(buffer[3]) << 24
                 fallthrough
             case 3:
-                tailBytes |= UInt64(buffer[2]) << 16
+                m |= UInt64(buffer[2]) << 16
                 fallthrough
             case 2:
-                tailBytes |= UInt64(buffer[1]) << 8
+                m |= UInt64(buffer[1]) << 8
                 fallthrough
             case 1:
-                tailBytes |= UInt64(buffer[0])
+                m |= UInt64(buffer[0])
             default:
                 precondition(readCount == 0)
             }
-            tailByteCount += readCount
+            pendingBytes |= m << UInt64(pendingByteCount << 3)
+            pendingByteCount += readCount
             i += readCount
 
-            if tailByteCount == 8 {
-                compressWord(tailBytes)
-                tailBytes = 0
-                tailByteCount = 0
+            if pendingByteCount == 8 {
+                compressWord(pendingBytes)
+                pendingBytes = 0
+                pendingByteCount = 0
             }
         }
 
@@ -159,58 +161,37 @@ public struct SipHash {
 
         switch left {
         case 7:
-            tailBytes |= UInt64(buffer[6]) << 48
+            pendingBytes |= UInt64(buffer[i + 6]) << 48
             fallthrough
         case 6:
-            tailBytes |= UInt64(buffer[5]) << 40
+            pendingBytes |= UInt64(buffer[i + 5]) << 40
             fallthrough
         case 5:
-            tailBytes |= UInt64(buffer[4]) << 32
+            pendingBytes |= UInt64(buffer[i + 4]) << 32
             fallthrough
         case 4:
-            tailBytes |= UInt64(buffer[3]) << 24
+            pendingBytes |= UInt64(buffer[i + 3]) << 24
             fallthrough
         case 3:
-            tailBytes |= UInt64(buffer[2]) << 16
+            pendingBytes |= UInt64(buffer[i + 2]) << 16
             fallthrough
         case 2:
-            tailBytes |= UInt64(buffer[1]) << 8
+            pendingBytes |= UInt64(buffer[i + 1]) << 8
             fallthrough
         case 1:
-            tailBytes |= UInt64(buffer[0])
+            pendingBytes |= UInt64(buffer[i])
         default:
             precondition(left == 0)
         }
-        tailByteCount = left
+        pendingByteCount = left
 
         byteCount += buffer.count
-    }
-
-    /// Add hashing components in `value` to this hash. This method simply calls `value.addHashes`.
-    ///
-    /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add<H: SipHashable>(_ value: H) {
-        value.addHashes(to: &self)
-    }
-
-    /// Add the hash value of `value` to this hash.
-    ///
-    /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add<H: Hashable>(_ value: H) {
-        add(value.hashValue)
     }
 
     /// Finalize this hash and return the hash value.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func finalize() -> Int {
-        if MemoryLayout<Int>.size == 8 {
-            return Int(Int64(bitPattern: _finalize()))
-        }
-        else {
-            precondition(MemoryLayout<Int>.size == 4)
-            let hash = _finalize()
-            return Int(truncatingBitPattern: hash ^ (hash >> 32))
-        }
+        return Int(truncatingBitPattern: _finalize())
     }
 }

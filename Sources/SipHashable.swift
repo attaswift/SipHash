@@ -42,3 +42,18 @@ extension SipHashable {
     }
 }
 
+extension SipHash {
+    /// Add hashing components in `value` to this hash. This method simply calls `value.addHashes`.
+    ///
+    /// - Requires: `finalize()` hasn't been called on this instance yet.
+    public mutating func add<H: SipHashable>(_ value: H) {
+        value.addHashes(to: &self)
+    }
+
+    /// Add the hash value of `value` to this hash.
+    ///
+    /// - Requires: `finalize()` hasn't been called on this instance yet.
+    public mutating func add<H: Hashable>(_ value: H) {
+        add(value.hashValue)
+    }
+}
