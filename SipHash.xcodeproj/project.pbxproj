@@ -190,7 +190,8 @@
 				BB241BD71DDA302F0067F917 /* Primitive Types.swift */,
 				BBB55AB71C8F80020050DDA9 /* Info.plist */,
 			);
-			path = Sources;
+			name = Sources;
+			path = sources;
 			sourceTree = "<group>";
 		};
 		BBB55AC01C8F80020050DDA9 /* Tests */ = {
@@ -202,7 +203,7 @@
 				BBB55AC31C8F80020050DDA9 /* Info.plist */,
 			);
 			name = Tests;
-			path = Tests/SipHashTests;
+			path = tests/SipHashTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
