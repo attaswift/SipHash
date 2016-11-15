@@ -6,7 +6,9 @@
 //  Copyright © 2016. Károly Lőrentey.
 //
 
-public extension SipHash {
+extension SipHash {
+    //MARK: Integers
+
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
@@ -94,12 +96,16 @@ public extension SipHash {
         var data = value
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt8>.size))
     }
+}
+
+extension SipHash {
+    //MARK: Floating Point Types
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func add(_ value: Float) {
-        var data = value
+        var data = value.isZero ? 0.0 : value
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Float>.size))
     }
 
@@ -107,7 +113,7 @@ public extension SipHash {
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func add(_ value: Double) {
-        var data = value
+        var data = value.isZero ? 0.0 : value
         add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Double>.size))
     }
 
@@ -116,8 +122,24 @@ public extension SipHash {
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func add(_ value: Float80) {
-        var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Float80>.size))
+        var data = value.isZero ? 0.0 : value
+        // Float80 is 16 bytes wide but the last 6 are uninitialized.
+        let buffer = UnsafeRawBufferPointer(start: &data, count: 10)
+        add(buffer)
     }
     #endif
 }
+
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+    import CoreGraphics
+
+    extension SipHash {
+        /// Add `value` to this hash.
+        ///
+        /// - Requires: `finalize()` hasn't been called on this instance yet.
+        public mutating func add(_ value: CGFloat) {
+            var data = value.isZero ? 0.0 : value
+            add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<CGFloat>.size))
+        }
+    }
+#endif

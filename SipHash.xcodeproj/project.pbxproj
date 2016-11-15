@@ -26,6 +26,9 @@
 		BB241BEC1DDA67140067F917 /* SipHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEB1DDA67140067F917 /* SipHashableTests.swift */; };
 		BB241BED1DDA67140067F917 /* SipHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEB1DDA67140067F917 /* SipHashableTests.swift */; };
 		BB241BEE1DDA67140067F917 /* SipHashableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEB1DDA67140067F917 /* SipHashableTests.swift */; };
+		BB241BF01DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
+		BB241BF11DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
+		BB241BF21DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
 		BBB55ABD1C8F80020050DDA9 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB55AB21C8F80020050DDA9 /* SipHash.framework */; };
 		BBB55AC21C8F80020050DDA9 /* SipHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB55AC11C8F80020050DDA9 /* SipHashTests.swift */; };
 		BBB55ADE1C8F88F20050DDA9 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB55AD41C8F88F20050DDA9 /* SipHash.framework */; };
@@ -66,6 +69,7 @@
 		BB241BD91DDA302F0067F917 /* SipHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHash.swift; sourceTree = "<group>"; };
 		BB241BDA1DDA302F0067F917 /* SipHashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashable.swift; sourceTree = "<group>"; };
 		BB241BEB1DDA67140067F917 /* SipHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashableTests.swift; sourceTree = "<group>"; };
+		BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimitiveTypeTests.swift; sourceTree = "<group>"; };
 		BBB55AB21C8F80020050DDA9 /* SipHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SipHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB55AB71C8F80020050DDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB55ABC1C8F80020050DDA9 /* SipHash-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SipHash-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,7 @@
 			children = (
 				BBB55AC11C8F80020050DDA9 /* SipHashTests.swift */,
 				BB241BEB1DDA67140067F917 /* SipHashableTests.swift */,
+				BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */,
 				BBB55AC31C8F80020050DDA9 /* Info.plist */,
 			);
 			name = Tests;
@@ -479,6 +484,7 @@
 			files = (
 				BB241BEC1DDA67140067F917 /* SipHashableTests.swift in Sources */,
 				BBB55AC21C8F80020050DDA9 /* SipHashTests.swift in Sources */,
+				BB241BF01DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +505,7 @@
 			files = (
 				BB241BED1DDA67140067F917 /* SipHashableTests.swift in Sources */,
 				BBB55B151C8F8FE70050DDA9 /* SipHashTests.swift in Sources */,
+				BB241BF11DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +537,7 @@
 			files = (
 				BB241BEE1DDA67140067F917 /* SipHashableTests.swift in Sources */,
 				BBB55B161C8F8FE80050DDA9 /* SipHashTests.swift in Sources */,
+				BB241BF21DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
