@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
     spec.ios.deployment_target = "8.0"
     spec.tvos.deployment_target = "9.0"
     spec.watchos.deployment_target = "2.0"
-    spec.summary      = 'Simple low-collision hashing in Swift with the SipHash algorithm'
+    spec.summary      = 'Simple and secure hashing in Swift with the SipHash algorithm'
     spec.author       = 'Károly Lőrentey'
     spec.homepage     = 'https://github.com/lorentey/SipHash'
     spec.license      = { :type => 'MIT', :file => 'LICENSE.md' }
