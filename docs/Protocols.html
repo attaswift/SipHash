@@ -58,7 +58,7 @@
             <a class="nav-group-name-link" href="Structs.html">Structs</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/SipHash.html">SipHash</a>
+                <a class="nav-group-task-link" href="Structs/SipHasher.html">SipHasher</a>
               </li>
             </ul>
           </li>
@@ -93,15 +93,19 @@
                       <div class="abstract">
                         <p>A variant of <code>Hashable</code> that makes it simpler to generate good hash values.</p>
 
+<p>Instead of <code>hashValue</code>, you need to implement <code>addHashes</code>, adding
+data that should contribute to the hash to the supplied hasher.
+The hasher takes care of blending the supplied data together.</p>
+
 <p>Example implementation:</p>
 
 <pre class="highlight plaintext"><code>struct Book: SipHashable {
     var title: String
     var pageCount: Int
 
-    func addHashes(to hash: inout SipHash) {
-        hash.add(title)
-        hash.add(pageCount)
+    func appendHashes(to hasher: inout SipHasher) {
+        hasher.append(title)
+        hasher.append(pageCount)
     }
 
     static func ==(left: Book, right: Book) -&gt; Bool {
@@ -121,7 +125,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/lorentey/SipHash/tree/64b64f42b12e1b57ff2a77e00111ee0d31634514/Sources/SipHashable.swift#L28-L31">Show on GitHub</a>
+                        <a href="https://github.com/lorentey/SipHash/tree/v1.0.0/sources/SipHashable.swift#L32-L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
