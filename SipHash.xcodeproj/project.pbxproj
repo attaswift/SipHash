@@ -29,6 +29,12 @@
 		BB241BF01DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
 		BB241BF11DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
 		BB241BF21DDA6AF00067F917 /* PrimitiveTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */; };
+		BB241BF41DDA8CBB0067F917 /* generate-docs.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF31DDA8CBB0067F917 /* generate-docs.sh */; };
+		BB241BF51DDA8CBB0067F917 /* generate-docs.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF31DDA8CBB0067F917 /* generate-docs.sh */; };
+		BB241BF61DDA8CBB0067F917 /* generate-docs.sh in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF31DDA8CBB0067F917 /* generate-docs.sh */; };
+		BB241BF81DDA8CEE0067F917 /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF71DDA8CEE0067F917 /* .codecov.yml */; };
+		BB241BF91DDA8CEE0067F917 /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF71DDA8CEE0067F917 /* .codecov.yml */; };
+		BB241BFA1DDA8CEE0067F917 /* .codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB241BF71DDA8CEE0067F917 /* .codecov.yml */; };
 		BBB55ABD1C8F80020050DDA9 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB55AB21C8F80020050DDA9 /* SipHash.framework */; };
 		BBB55AC21C8F80020050DDA9 /* SipHashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB55AC11C8F80020050DDA9 /* SipHashTests.swift */; };
 		BBB55ADE1C8F88F20050DDA9 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB55AD41C8F88F20050DDA9 /* SipHash.framework */; };
@@ -70,6 +76,8 @@
 		BB241BDA1DDA302F0067F917 /* SipHashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashable.swift; sourceTree = "<group>"; };
 		BB241BEB1DDA67140067F917 /* SipHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashableTests.swift; sourceTree = "<group>"; };
 		BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimitiveTypeTests.swift; sourceTree = "<group>"; };
+		BB241BF31DDA8CBB0067F917 /* generate-docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "generate-docs.sh"; sourceTree = "<group>"; };
+		BB241BF71DDA8CEE0067F917 /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
 		BBB55AB21C8F80020050DDA9 /* SipHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SipHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB55AB71C8F80020050DDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB55ABC1C8F80020050DDA9 /* SipHash-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SipHash-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +158,8 @@
 				BB241BC51DD9F6490067F917 /* Package.swift */,
 				BB241BC71DD9F7D60067F917 /* SipHash.podspec */,
 				BBB55B1C1C8F90F60050DDA9 /* .travis.yml */,
+				BB241BF71DDA8CEE0067F917 /* .codecov.yml */,
+				BB241BF31DDA8CBB0067F917 /* generate-docs.sh */,
 				BBB55ACC1C8F80660050DDA9 /* version.xcconfig */,
 				BBB55AB41C8F80020050DDA9 /* Sources */,
 				BBB55AC01C8F80020050DDA9 /* Tests */,
@@ -426,6 +436,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB241BF81DDA8CEE0067F917 /* .codecov.yml in Resources */,
+				BB241BF41DDA8CBB0067F917 /* generate-docs.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +452,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB241BF91DDA8CEE0067F917 /* .codecov.yml in Resources */,
+				BB241BF51DDA8CBB0067F917 /* generate-docs.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +475,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB241BFA1DDA8CEE0067F917 /* .codecov.yml in Resources */,
+				BB241BF61DDA8CBB0067F917 /* generate-docs.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
