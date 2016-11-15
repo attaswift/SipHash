@@ -28,4 +28,4 @@ jazzy \
     --module "$module" \
     --root-url "https://lorentey.github.io/$module/reference/" \
     --theme fullwidth \
-    --output Docs
+    --output docs

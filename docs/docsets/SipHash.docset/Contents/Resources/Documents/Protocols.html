@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Structs  Reference</title>
+    <title>Protocols  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Structs  Reference"></a>
+    <a title="Protocols  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -40,7 +40,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">SipHash Reference</a>
       <img class="carat" src="img/carat.png" />
-      Structs  Reference
+      Protocols  Reference
     </p>
 
     <div class="content-wrapper">
@@ -68,8 +68,8 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Structs</h1>
-            <p>The following structs are available globally.</p>
+            <h1>Protocols</h1>
+            <p>The following protocols are available globally.</p>
 
           </div>
         </section>
@@ -81,9 +81,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V7SipHash7SipHash"></a>
-                    <a name="//apple_ref/swift/Struct/SipHash" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V7SipHash7SipHash">SipHash</a>
+                    <a name="/s:P7SipHash11SipHashable"></a>
+                    <a name="//apple_ref/swift/Protocol/SipHashable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:P7SipHash11SipHashable">SipHashable</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -91,24 +91,37 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An implementation of the <a href="https://131002.net/siphash">SipHash</a> hashing algorithm,
-suitable for use in projects outside the Swift standard library.
-(The Swift stdlib already includes SipHash; unfortunately its API is not public.)</p>
+                        <p>A variant of <code>Hashable</code> that makes it simpler to generate good hash values.</p>
 
-<p>SipHash was invented by Jean-Philippe Aumasson and Daniel J. Bernstein.</p>
+<p>Example implementation:</p>
 
-                        <a href="Structs/SipHash.html" class="slightly-smaller">See more</a>
+<pre class="highlight plaintext"><code>struct Book: SipHashable {
+    var title: String
+    var pageCount: Int
+
+    func addHashes(to hash: inout SipHash) {
+        hash.add(title)
+        hash.add(pageCount)
+    }
+
+    static func ==(left: Book, right: Book) -&gt; Bool {
+        return left.title == right.title &amp;&amp; left.pageCount == right.pageCount
+    }
+}
+</code></pre>
+
+                        <a href="Protocols/SipHashable.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SipHash</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SipHashable</span><span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/lorentey/SipHash/tree/9bcdf5b4c356dfa1d1913b91732e4f1367ee6ea0/Sources/SipHash.swift#L18-L203">Show on GitHub</a>
+                        <a href="https://github.com/lorentey/SipHash/tree/64b64f42b12e1b57ff2a77e00111ee0d31634514/Sources/SipHashable.swift#L28-L31">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
