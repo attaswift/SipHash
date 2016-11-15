@@ -75,7 +75,7 @@ let hash = hasher.finalize()
 
 Writing a good implementation of `hashValue` is hard, even if we just need to combine the values of a couple of fields.
 We need to come up with a deterministic function that blends the field values well, producing a fixed-width
-result without too many collisions on typicals inputs. But how many collisions are "too many"? Do we even know what
+result without too many collisions on typical inputs. But how many collisions are "too many"? Do we even know what
 our "typical inputs" look like? For me, the answer to both of these questions is usually "I have absolutely no idea", 
 and I bet you have the same problem.
 
