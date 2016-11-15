@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		BB241BDB1DDA302F0067F917 /* Primitive Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD71DDA302F0067F917 /* Primitive Types.swift */; };
 		BB241BDC1DDA302F0067F917 /* RandomUInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD81DDA302F0067F917 /* RandomUInt64.swift */; };
-		BB241BDD1DDA302F0067F917 /* SipHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHash.swift */; };
+		BB241BDD1DDA302F0067F917 /* SipHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHasher.swift */; };
 		BB241BDE1DDA302F0067F917 /* SipHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BDA1DDA302F0067F917 /* SipHashable.swift */; };
-		BB241BDF1DDA33620067F917 /* SipHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHash.swift */; };
+		BB241BDF1DDA33620067F917 /* SipHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHasher.swift */; };
 		BB241BE01DDA33620067F917 /* SipHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BDA1DDA302F0067F917 /* SipHashable.swift */; };
 		BB241BE11DDA33620067F917 /* RandomUInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD81DDA302F0067F917 /* RandomUInt64.swift */; };
 		BB241BE21DDA33620067F917 /* Primitive Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD71DDA302F0067F917 /* Primitive Types.swift */; };
-		BB241BE31DDA33620067F917 /* SipHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHash.swift */; };
+		BB241BE31DDA33620067F917 /* SipHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHasher.swift */; };
 		BB241BE41DDA33620067F917 /* SipHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BDA1DDA302F0067F917 /* SipHashable.swift */; };
 		BB241BE51DDA33620067F917 /* RandomUInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD81DDA302F0067F917 /* RandomUInt64.swift */; };
 		BB241BE61DDA33620067F917 /* Primitive Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD71DDA302F0067F917 /* Primitive Types.swift */; };
-		BB241BE71DDA33630067F917 /* SipHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHash.swift */; };
+		BB241BE71DDA33630067F917 /* SipHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD91DDA302F0067F917 /* SipHasher.swift */; };
 		BB241BE81DDA33630067F917 /* SipHashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BDA1DDA302F0067F917 /* SipHashable.swift */; };
 		BB241BE91DDA33630067F917 /* RandomUInt64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD81DDA302F0067F917 /* RandomUInt64.swift */; };
 		BB241BEA1DDA33630067F917 /* Primitive Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB241BD71DDA302F0067F917 /* Primitive Types.swift */; };
@@ -72,7 +72,7 @@
 		BB241BC71DD9F7D60067F917 /* SipHash.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = SipHash.podspec; sourceTree = "<group>"; };
 		BB241BD71DDA302F0067F917 /* Primitive Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Primitive Types.swift"; sourceTree = "<group>"; };
 		BB241BD81DDA302F0067F917 /* RandomUInt64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomUInt64.swift; sourceTree = "<group>"; };
-		BB241BD91DDA302F0067F917 /* SipHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHash.swift; sourceTree = "<group>"; };
+		BB241BD91DDA302F0067F917 /* SipHasher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHasher.swift; sourceTree = "<group>"; };
 		BB241BDA1DDA302F0067F917 /* SipHashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashable.swift; sourceTree = "<group>"; };
 		BB241BEB1DDA67140067F917 /* SipHashableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SipHashableTests.swift; sourceTree = "<group>"; };
 		BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimitiveTypeTests.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 		BBB55AB41C8F80020050DDA9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				BB241BD91DDA302F0067F917 /* SipHash.swift */,
+				BB241BD91DDA302F0067F917 /* SipHasher.swift */,
 				BB241BDA1DDA302F0067F917 /* SipHashable.swift */,
 				BB241BD81DDA302F0067F917 /* RandomUInt64.swift */,
 				BB241BD71DDA302F0067F917 /* Primitive Types.swift */,
@@ -489,7 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB241BDE1DDA302F0067F917 /* SipHashable.swift in Sources */,
-				BB241BDD1DDA302F0067F917 /* SipHash.swift in Sources */,
+				BB241BDD1DDA302F0067F917 /* SipHasher.swift in Sources */,
 				BB241BDC1DDA302F0067F917 /* RandomUInt64.swift in Sources */,
 				BB241BDB1DDA302F0067F917 /* Primitive Types.swift in Sources */,
 			);
@@ -510,7 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB241BE01DDA33620067F917 /* SipHashable.swift in Sources */,
-				BB241BDF1DDA33620067F917 /* SipHash.swift in Sources */,
+				BB241BDF1DDA33620067F917 /* SipHasher.swift in Sources */,
 				BB241BE21DDA33620067F917 /* Primitive Types.swift in Sources */,
 				BB241BE11DDA33620067F917 /* RandomUInt64.swift in Sources */,
 			);
@@ -531,7 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB241BE41DDA33620067F917 /* SipHashable.swift in Sources */,
-				BB241BE31DDA33620067F917 /* SipHash.swift in Sources */,
+				BB241BE31DDA33620067F917 /* SipHasher.swift in Sources */,
 				BB241BE61DDA33620067F917 /* Primitive Types.swift in Sources */,
 				BB241BE51DDA33620067F917 /* RandomUInt64.swift in Sources */,
 			);
@@ -542,7 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB241BE81DDA33630067F917 /* SipHashable.swift in Sources */,
-				BB241BE71DDA33630067F917 /* SipHash.swift in Sources */,
+				BB241BE71DDA33630067F917 /* SipHasher.swift in Sources */,
 				BB241BEA1DDA33630067F917 /* Primitive Types.swift in Sources */,
 				BB241BE91DDA33630067F917 /* RandomUInt64.swift in Sources */,
 			);

@@ -6,126 +6,126 @@
 //  Copyright © 2016. Károly Lőrentey.
 //
 
-extension SipHash {
+extension SipHasher {
     //MARK: Appending Integers
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Bool) {
+    public mutating func append(_ value: Bool) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Bool>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Bool>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Int) {
+    public mutating func append(_ value: Int) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: UInt) {
+    public mutating func append(_ value: UInt) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Int64) {
+    public mutating func append(_ value: Int64) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int64>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int64>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: UInt64) {
+    public mutating func append(_ value: UInt64) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt64>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt64>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Int32) {
+    public mutating func append(_ value: Int32) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int32>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int32>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: UInt32) {
+    public mutating func append(_ value: UInt32) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt32>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt32>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Int16) {
+    public mutating func append(_ value: Int16) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int16>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int16>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: UInt16) {
+    public mutating func append(_ value: UInt16) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt16>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt16>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Int8) {
+    public mutating func append(_ value: Int8) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int8>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Int8>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: UInt8) {
+    public mutating func append(_ value: UInt8) {
         var data = value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt8>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<UInt8>.size))
     }
 }
 
-extension SipHash {
+extension SipHasher {
     //MARK: Appending Floating Point Types
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Float) {
+    public mutating func append(_ value: Float) {
         var data = value.isZero ? 0.0 : value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Float>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Float>.size))
     }
 
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Double) {
+    public mutating func append(_ value: Double) {
         var data = value.isZero ? 0.0 : value
-        add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Double>.size))
+        append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<Double>.size))
     }
 
     #if arch(i386) || arch(x86_64)
     /// Add `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ value: Float80) {
+    public mutating func append(_ value: Float80) {
         var data = value.isZero ? 0.0 : value
         // Float80 is 16 bytes wide but the last 6 are uninitialized.
         let buffer = UnsafeRawBufferPointer(start: &data, count: 10)
-        add(buffer)
+        append(buffer)
     }
     #endif
 }
@@ -133,13 +133,13 @@ extension SipHash {
 #if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
     import CoreGraphics
 
-    extension SipHash {
+    extension SipHasher {
         /// Add `value` to this hash.
         ///
         /// - Requires: `finalize()` hasn't been called on this instance yet.
-        public mutating func add(_ value: CGFloat) {
+        public mutating func append(_ value: CGFloat) {
             var data = value.isZero ? 0.0 : value
-            add(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<CGFloat>.size))
+            append(UnsafeRawBufferPointer(start: &data, count: MemoryLayout<CGFloat>.size))
         }
     }
 #endif

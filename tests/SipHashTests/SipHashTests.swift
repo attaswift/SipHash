@@ -97,8 +97,8 @@ class SipHashTests: XCTestCase {
             for i in 0 ..< 64 {
                 let b = UnsafeRawBufferPointer(buffer)[0 ..< i]
                 let expected = vector(i)
-                var hash = SipHash(k0: k0, k1: k1)
-                hash.add(b)
+                var hash = SipHasher(k0: k0, k1: k1)
+                hash.append(b)
                 let actual = hash.finalize()
                 XCTAssertEqual(actual, expected, "Test vector failed for \(i) bytes")
             }
@@ -111,9 +111,9 @@ class SipHashTests: XCTestCase {
                 let b = UnsafeRawBufferPointer(buffer)
                 let expected = vector(63)
 
-                var hash = SipHash(k0: k0, k1: k1)
-                hash.add(b[0 ..< i])
-                hash.add(b[i ..< 63])
+                var hash = SipHasher(k0: k0, k1: k1)
+                hash.append(b[0 ..< i])
+                hash.append(b[i ..< 63])
                 let actual = hash.finalize()
                 XCTAssertEqual(actual, expected, "Test vector #63 failed for split at \(i) bytes")
             }
@@ -128,12 +128,12 @@ class SipHashTests: XCTestCase {
             for i in 0 ..< 64 {
                 let b = UnsafeRawBufferPointer(buffer)[0 ..< i]
 
-                var hash1 = SipHash()
-                hash1.add(b)
+                var hash1 = SipHasher()
+                hash1.append(b)
                 let h1 = hash1.finalize()
 
-                var hash2 = SipHash()
-                hash2.add(b)
+                var hash2 = SipHasher()
+                hash2.append(b)
                 let h2 = hash2.finalize()
 
                 XCTAssertEqual(h1, h2)

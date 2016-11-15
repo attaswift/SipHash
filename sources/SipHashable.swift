@@ -8,6 +8,10 @@
 
 /// A variant of `Hashable` that makes it simpler to generate good hash values.
 ///
+/// Instead of `hashValue`, you need to implement `addHashes`, adding
+/// data that should contribute to the hash to the supplied hasher.
+/// The hasher takes care of blending the supplied data together.
+///
 /// Example implementation:
 ///
 /// ```
@@ -15,9 +19,9 @@
 ///     var title: String
 ///     var pageCount: Int
 ///
-///     func addHashes(to hash: inout SipHash) {
-///         hash.add(title)
-///         hash.add(pageCount)
+///     func appendHashes(to hasher: inout SipHasher) {
+///         hasher.append(title)
+///         hasher.append(pageCount)
 ///     }
 ///
 ///     static func ==(left: Book, right: Book) -> Bool {
@@ -27,7 +31,7 @@
 /// ```
 public protocol SipHashable: Hashable {
     /// Add components of `self` that should contribute to hashing to `hash`.
-    func addHashes(to hash: inout SipHash)
+    func appendHashes(to hasher: inout SipHasher)
 }
 
 extension SipHashable {
@@ -36,26 +40,26 @@ extension SipHashable {
     /// Hash values are not guaranteed to be equal across different executions of your program.
     /// Do not save hash values to use during a future execution.
     public var hashValue: Int {
-        var hash = SipHash()
-        addHashes(to: &hash)
-        return hash.finalize()
+        var hasher = SipHasher()
+        appendHashes(to: &hasher)
+        return hasher.finalize()
     }
 }
 
-extension SipHash {
+extension SipHasher {
     //MARK: Appending Hashable Values
     
     /// Add hashing components in `value` to this hash. This method simply calls `value.addHashes`.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add<H: SipHashable>(_ value: H) {
-        value.addHashes(to: &self)
+    public mutating func append<H: SipHashable>(_ value: H) {
+        value.appendHashes(to: &self)
     }
 
     /// Add the hash value of `value` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add<H: Hashable>(_ value: H) {
-        add(value.hashValue)
+    public mutating func append<H: Hashable>(_ value: H) {
+        append(value.hashValue)
     }
 }

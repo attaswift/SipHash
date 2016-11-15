@@ -1,5 +1,5 @@
 //
-//  SipHash.swift
+//  SipHasher.swift
 //  SipHash
 //
 //  Created by Károly Lőrentey on 2016-03-08.
@@ -15,14 +15,14 @@ private func rotateLeft(_ value: UInt64, by amount: UInt64) -> UInt64 {
 /// (The Swift stdlib already includes SipHash; unfortunately its API is not public.)
 ///
 /// SipHash was invented by Jean-Philippe Aumasson and Daniel J. Bernstein.
-public struct SipHash {
+public struct SipHasher {
     /// The number of compression rounds.
     private static let c = 2
     /// The number of finalization rounds.
     private static let d = 4
 
     /// The default key, used by the default initializer.
-    /// Each process has a unique key, chosen randomly when the first instance of `SipHash` is initialized.
+    /// Each process has a unique key, chosen randomly when the first instance of `SipHasher` is initialized.
     static let key: (UInt64, UInt64) = (randomUInt64(), randomUInt64())
 
     /// Word 0 of the internal state, initialized to ASCII encoding of "somepseu".
@@ -45,7 +45,7 @@ public struct SipHash {
 
     /// Initialize a new instance with the default key, generated randomly the first time this initializer is called.
     public init() {
-        self.init(k0: SipHash.key.0, k1: SipHash.key.1)
+        self.init(k0: SipHasher.key.0, k1: SipHasher.key.1)
     }
 
     /// Initialize a new instance with the specified key.
@@ -79,7 +79,7 @@ public struct SipHash {
 
     mutating func compressWord(_ m: UInt64) {
         v3 ^= m
-        for _ in 0 ..< SipHash.c {
+        for _ in 0 ..< SipHasher.c {
             sipRound()
         }
         v0 ^= m
@@ -93,7 +93,7 @@ public struct SipHash {
         compressWord(pendingBytes)
 
         v2 ^= 0xff
-        for _ in 0 ..< SipHash.d {
+        for _ in 0 ..< SipHasher.d {
             sipRound()
         }
 
@@ -105,7 +105,7 @@ public struct SipHash {
     /// Add all bytes in `buffer` to this hash.
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
-    public mutating func add(_ buffer: UnsafeRawBufferPointer) {
+    public mutating func append(_ buffer: UnsafeRawBufferPointer) {
         precondition(byteCount >= 0)
 
         // Use the first couple of bytes to complete the pending word.

@@ -16,13 +16,13 @@ class PrimitiveTypeTests: XCTestCase {
             (true, [1])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value)
+            var hash1 = SipHasher()
+            hash1.append(value)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -56,13 +56,13 @@ class PrimitiveTypeTests: XCTestCase {
         }
 
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -92,13 +92,13 @@ class PrimitiveTypeTests: XCTestCase {
         }
 
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -116,13 +116,13 @@ class PrimitiveTypeTests: XCTestCase {
             (Int64.min, [0, 0, 0, 0, 0, 0, 0, 128]),
             ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -138,13 +138,13 @@ class PrimitiveTypeTests: XCTestCase {
             (UInt64.max, [255, 255, 255, 255, 255, 255, 255, 255]),
             ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -162,13 +162,13 @@ class PrimitiveTypeTests: XCTestCase {
             (Int32.min, [0, 0, 0, 128]),
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -184,13 +184,13 @@ class PrimitiveTypeTests: XCTestCase {
             (0xffffffff, [255, 255, 255, 255])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -209,13 +209,13 @@ class PrimitiveTypeTests: XCTestCase {
             (Int16.min, [0x00, 0x80])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -231,13 +231,13 @@ class PrimitiveTypeTests: XCTestCase {
             (0xffff, [255, 255])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value.littleEndian)
+            var hash1 = SipHasher()
+            hash1.append(value.littleEndian)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -256,13 +256,13 @@ class PrimitiveTypeTests: XCTestCase {
             (-128, [128])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value)
+            var hash1 = SipHasher()
+            hash1.append(value)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -278,13 +278,13 @@ class PrimitiveTypeTests: XCTestCase {
             (255, [255])
         ]
         for (value, data) in tests {
-            var hash1 = SipHash()
-            hash1.add(value)
+            var hash1 = SipHasher()
+            hash1.append(value)
             let h1 = hash1.finalize()
 
-            var hash2 = SipHash()
+            var hash2 = SipHasher()
             data.withUnsafeBufferPointer { buffer in
-                hash2.add(UnsafeRawBufferPointer(buffer))
+                hash2.append(UnsafeRawBufferPointer(buffer))
             }
             let h2 = hash2.finalize()
 
@@ -294,29 +294,29 @@ class PrimitiveTypeTests: XCTestCase {
 
     func testFloat() {
         let zeroA: Int = {
-            var h = SipHash()
-            h.add(0.0 as Float)
+            var h = SipHasher()
+            h.append(0.0 as Float)
             return h.finalize()
         }()
 
         let zeroB: Int = {
-            var h = SipHash()
-            h.add(-0.0 as Float)
+            var h = SipHasher()
+            h.append(-0.0 as Float)
             return h.finalize()
         }()
 
         XCTAssertEqual(zeroA, zeroB, "+0.0 and -0.0 should have the same hash value")
 
         let oneHash: Int = {
-            var h = SipHash()
-            h.add(1.0 as Float)
+            var h = SipHasher()
+            h.append(1.0 as Float)
             return h.finalize()
         }()
         let oneExpected: Int = {
-            var h = SipHash()
+            var h = SipHasher()
             let d = Array<UInt8>([0, 0, 128, 63])
             d.withUnsafeBufferPointer { b in
-                h.add(UnsafeRawBufferPointer(b))
+                h.append(UnsafeRawBufferPointer(b))
             }
             return h.finalize()
         }()
@@ -325,29 +325,29 @@ class PrimitiveTypeTests: XCTestCase {
 
     func testDouble() {
         let zeroA: Int = {
-            var h = SipHash()
-            h.add(0.0 as Double)
+            var h = SipHasher()
+            h.append(0.0 as Double)
             return h.finalize()
         }()
 
         let zeroB: Int = {
-            var h = SipHash()
-            h.add(-0.0 as Double)
+            var h = SipHasher()
+            h.append(-0.0 as Double)
             return h.finalize()
         }()
 
         XCTAssertEqual(zeroA, zeroB, "+0.0 and -0.0 should have the same hash value")
 
         let oneHash: Int = {
-            var h = SipHash()
-            h.add(1.0 as Double)
+            var h = SipHasher()
+            h.append(1.0 as Double)
             return h.finalize()
         }()
         let oneExpected: Int = {
-            var h = SipHash()
+            var h = SipHasher()
             let d = Array<UInt8>([0, 0, 0, 0, 0, 0, 240, 63])
             d.withUnsafeBufferPointer { b in
-                h.add(UnsafeRawBufferPointer(b))
+                h.append(UnsafeRawBufferPointer(b))
             }
             return h.finalize()
         }()
@@ -362,29 +362,29 @@ class PrimitiveTypeTests: XCTestCase {
         XCTAssertEqual(f1, f2)
 
         let zeroA: Int = {
-            var h = SipHash()
-            h.add(f1)
+            var h = SipHasher()
+            h.append(f1)
             return h.finalize()
         }()
 
         let zeroB: Int = {
-            var h = SipHash()
-            h.add(f2)
+            var h = SipHasher()
+            h.append(f2)
             return h.finalize()
         }()
 
         XCTAssertEqual(zeroA, zeroB, "+0.0 and -0.0 should have the same hash value")
 
         let oneHash: Int = {
-            var h = SipHash()
-            h.add(1.0 as Float80)
+            var h = SipHasher()
+            h.append(1.0 as Float80)
             return h.finalize()
         }()
         let oneExpected: Int = {
-            var h = SipHash()
+            var h = SipHasher()
             let d = Array<UInt8>([0, 0, 0, 0, 0, 0, 0, 128, 255, 63])
             d.withUnsafeBufferPointer { b in
-                h.add(UnsafeRawBufferPointer(b))
+                h.append(UnsafeRawBufferPointer(b))
             }
             return h.finalize()
         }()
@@ -395,26 +395,26 @@ class PrimitiveTypeTests: XCTestCase {
     #if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
     func testCGFloat() {
         let zeroA: Int = {
-            var h = SipHash()
-            h.add(0.0 as CGFloat)
+            var h = SipHasher()
+            h.append(0.0 as CGFloat)
             return h.finalize()
         }()
 
         let zeroB: Int = {
-            var h = SipHash()
-            h.add(-0.0 as CGFloat)
+            var h = SipHasher()
+            h.append(-0.0 as CGFloat)
             return h.finalize()
         }()
 
         XCTAssertEqual(zeroA, zeroB, "+0.0 and -0.0 should have the same hash value")
 
         let oneHash: Int = {
-            var h = SipHash()
-            h.add(1.0 as CGFloat)
+            var h = SipHasher()
+            h.append(1.0 as CGFloat)
             return h.finalize()
         }()
         let oneExpected: Int = {
-            var h = SipHash()
+            var h = SipHasher()
             let d: Array<UInt8>
             if CGFloat.NativeType.self == Double.self {
                 d = [0, 0, 0, 0, 0, 0, 240, 63]
@@ -426,7 +426,7 @@ class PrimitiveTypeTests: XCTestCase {
                 fatalError()
             }
             d.withUnsafeBufferPointer { b in
-                h.add(UnsafeRawBufferPointer(b))
+                h.append(UnsafeRawBufferPointer(b))
             }
             return h.finalize()
         }()

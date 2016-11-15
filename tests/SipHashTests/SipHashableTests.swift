@@ -13,9 +13,9 @@ private struct Book: SipHashable {
     let title: String
     let pageCount: Int
 
-    func addHashes(to hash: inout SipHash) {
-        hash.add(title)
-        hash.add(pageCount)
+    func appendHashes(to hasher: inout SipHasher) {
+        hasher.append(title)
+        hasher.append(pageCount)
     }
 
     static func ==(left: Book, right: Book) -> Bool {
@@ -28,10 +28,10 @@ class SipHashableTests: XCTestCase {
         let book = Book(title: "The Colour of Magic", pageCount: 206)
         let actual = book.hashValue
 
-        var hash = SipHash()
-        hash.add(book.title.hashValue)
-        hash.add(book.pageCount)
-        let expected = hash.finalize()
+        var hasher = SipHasher()
+        hasher.append(book.title.hashValue)
+        hasher.append(book.pageCount)
+        let expected = hasher.finalize()
 
         XCTAssertEqual(actual, expected)
     }
@@ -50,9 +50,9 @@ class SipHashableTests: XCTestCase {
         let book = Book(title: "The Colour of Magic", pageCount: 206)
         let hash1 = book.hashValue
 
-        var sip = SipHash()
-        sip.add(book)
-        let hash2 = sip.finalize()
+        var hasher = SipHasher()
+        hasher.append(book)
+        let hash2 = hasher.finalize()
 
         XCTAssertEqual(hash1, hash2)
     }
