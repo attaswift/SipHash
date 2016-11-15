@@ -78,6 +78,7 @@
 		BB241BEF1DDA6AF00067F917 /* PrimitiveTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimitiveTypeTests.swift; sourceTree = "<group>"; };
 		BB241BF31DDA8CBB0067F917 /* generate-docs.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "generate-docs.sh"; sourceTree = "<group>"; };
 		BB241BF71DDA8CEE0067F917 /* .codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .codecov.yml; sourceTree = "<group>"; };
+		BB241BFB1DDB49210067F917 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		BBB55AB21C8F80020050DDA9 /* SipHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SipHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB55AB71C8F80020050DDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB55ABC1C8F80020050DDA9 /* SipHash-Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SipHash-Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB55B1E1C8F9E920050DDA9 /* README.md */,
+				BB241BFB1DDB49210067F917 /* CHANGELOG.md */,
 				BBB55B1D1C8F9E850050DDA9 /* LICENCE.md */,
 				BB241BC51DD9F6490067F917 /* Package.swift */,
 				BB241BC71DD9F7D60067F917 /* SipHash.podspec */,
