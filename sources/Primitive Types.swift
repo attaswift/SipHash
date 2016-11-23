@@ -130,19 +130,6 @@ extension SipHasher {
     #endif
 }
 
-extension SipHasher {
-    //MARK: Appending Optionals
-    public mutating func append<Value: Hashable>(_ value: Value?) {
-        if let value = value {
-            self.append(1 as UInt8)
-            self.append(value)
-        }
-        else {
-            self.append(0 as UInt8)
-        }
-    }
-}
-
 #if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
     import CoreGraphics
 
@@ -156,3 +143,16 @@ extension SipHasher {
         }
     }
 #endif
+
+extension SipHasher {
+    //MARK: Appending Optionals
+    public mutating func append<Value: Hashable>(_ value: Value?) {
+        if let value = value {
+            self.append(1 as UInt8)
+            self.append(value)
+        }
+        else {
+            self.append(0 as UInt8)
+        }
+    }
+}

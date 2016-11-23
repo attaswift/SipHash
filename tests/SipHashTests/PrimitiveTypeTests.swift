@@ -434,4 +434,37 @@ class PrimitiveTypeTests: XCTestCase {
 
     }
     #endif
+
+    func testOptional_nil() {
+        let expected: Int = {
+            var hasher = SipHasher()
+            hasher.append(0 as UInt8)
+            return hasher.finalize()
+        }()
+
+        let actual: Int = {
+            var hasher = SipHasher()
+            hasher.append(nil as Int?)
+            return hasher.finalize()
+        }()
+
+        XCTAssertEqual(actual, expected)
+    }
+
+    func testOptional_nonnil() {
+        let expected: Int = {
+            var hasher = SipHasher()
+            hasher.append(1 as UInt8)
+            hasher.append(42)
+            return hasher.finalize()
+        }()
+
+        let actual: Int = {
+            var hasher = SipHasher()
+            hasher.append(42 as Int?)
+            return hasher.finalize()
+        }()
+
+        XCTAssertEqual(actual, expected)
+    }
 }
