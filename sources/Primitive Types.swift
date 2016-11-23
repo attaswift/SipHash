@@ -146,6 +146,10 @@ extension SipHasher {
 
 extension SipHasher {
     //MARK: Appending Optionals
+
+    /// Add `value` to this hash.
+    ///
+    /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func append<Value: Hashable>(_ value: Value?) {
         if let value = value {
             self.append(1 as UInt8)
