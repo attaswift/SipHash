@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.1sneakpeek
+osx_image: xcode8.1
 script:
 - xcrun xcodebuild -project SipHash.xcodeproj -scheme SipHash-macOS test
 - xcrun xcodebuild -project SipHash.xcodeproj -scheme SipHash-iOS
