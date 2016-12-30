@@ -3,7 +3,7 @@
 //  SipHash
 //
 //  Created by Károly Lőrentey on 2016-11-14.
-//  Copyright © 2016. Károly Lőrentey.
+//  Copyright © 2016 Károly Lőrentey.
 //
 
 #if os(iOS) || os(macOS) || os(watchOS) || os(tvOS)
