@@ -1,3 +1,9 @@
+# Version 1.1.1 (2017-02-07)
+
+This release contains the following change:
+
+* A Swift 3.1 compilation issue about SipHash's (ab)use of @inline(__always) was fixed.
+
 # Version 1.1.0 (2016-11-23)
 
 This release contains the following changes:
