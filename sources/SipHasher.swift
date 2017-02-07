@@ -60,7 +60,7 @@ public struct SipHasher {
     }
 
     @inline(__always)
-    mutating func sipRound() {
+    private mutating func sipRound() {
         v0 = v0 &+ v1
         v1 = rotateLeft(v1, by: 13)
         v1 ^= v0
