@@ -1,3 +1,9 @@
+# Version 1.1.2 (2017-05-05)
+
+This release contains the following change:
+
+* Removed all remaining use of @inline(__always) attributes.
+
 # Version 1.1.1 (2017-02-07)
 
 This release contains the following change:
