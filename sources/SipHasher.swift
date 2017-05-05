@@ -5,7 +5,6 @@
 //  Created by Károly Lőrentey on 2016-03-08.
 //  Copyright © 2016 Károly Lőrentey.
 
-@inline(__always)
 private func rotateLeft(_ value: UInt64, by amount: UInt64) -> UInt64 {
     return (value << amount) | (value >> (64 - amount))
 }
@@ -59,7 +58,6 @@ public struct SipHasher {
         v3 ^= k1
     }
 
-    @inline(__always)
     private mutating func sipRound() {
         v0 = v0 &+ v1
         v1 = rotateLeft(v1, by: 13)
