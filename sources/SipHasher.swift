@@ -192,6 +192,6 @@ public struct SipHasher {
     ///
     /// - Requires: `finalize()` hasn't been called on this instance yet.
     public mutating func finalize() -> Int {
-        return Int(truncatingBitPattern: _finalize())
+        return Int(extendingOrTruncating: _finalize())
     }
 }
