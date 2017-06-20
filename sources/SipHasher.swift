@@ -149,15 +149,11 @@ public struct SipHasher {
         let left = (buffer.count - i) & 7
         let end = (buffer.count - i) - left
         while i < end {
-            let m = UInt64(buffer[i])
-                | (UInt64(buffer[i + 1]) << 8)
-                | (UInt64(buffer[i + 2]) << 16)
-                | (UInt64(buffer[i + 3]) << 24)
-                | (UInt64(buffer[i + 4]) << 32)
-                | (UInt64(buffer[i + 5]) << 40)
-                | (UInt64(buffer[i + 6]) << 48)
-                | (UInt64(buffer[i + 7]) << 56)
-            compressWord(m)
+            var m: UInt64 = 0
+            withUnsafeMutableBytes(of: &m) { p in
+                p.copyBytes(from: .init(rebasing: buffer[i ..< i + 8]))
+            }
+            compressWord(UInt64(littleEndian: m))
             i += 8
         }
 
