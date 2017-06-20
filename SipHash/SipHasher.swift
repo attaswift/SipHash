@@ -3,7 +3,7 @@
 //  SipHash
 //
 //  Created by Károly Lőrentey on 2016-03-08.
-//  Copyright © 2016 Károly Lőrentey.
+//  Copyright © 2016-2017 Károly Lőrentey.
 
 private func rotateLeft(_ value: UInt64, by amount: UInt64) -> UInt64 {
     return (value << amount) | (value >> (64 - amount))
