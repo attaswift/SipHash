@@ -1,6 +1,6 @@
 # SipHash
 
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0.1-blue.svg)](https://swift.org) 
+[![Swift 3.x, 4.0](https://img.shields.io/badge/Swift-3,%204-blue.svg)](https://swift.org)
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/lorentey/SipHash/blob/master/LICENSE.md)
 [![Platform](https://img.shields.io/badge/platforms-macOS%20∙%20iOS%20∙%20watchOS%20∙%20tvOS%20∙%20Linux-blue.svg)](https://developer.apple.com/platforms/)
 
@@ -34,7 +34,7 @@ independent implementation that's available for use in third-party code.
 
 [stdlib]: https://github.com/apple/swift/blob/master/stdlib/public/core/SipHash.swift.gyb
 
-SipHash requires Swift 3.0.1.
+SipHash requires Swift 3.0.1. A prerelease variant that supports Swift 4 is available on the `swift4` branch.
 
 ## Sample Code 
 
