@@ -6,7 +6,7 @@
 
 [![Build Status](https://travis-ci.org/attaswift/SipHash.svg?branch=master)](https://travis-ci.org/attaswift/SipHash)
 [![Code Coverage](https://codecov.io/github/attaswift/SipHash/coverage.svg?branch=master)](https://codecov.io/github/attaswift/SipHash?branch=master)
-[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/SipHash.svg)](http://lorentey.github.io/SipHash)
+[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/SipHash.svg)](http://attaswift.github.io/SipHash)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPod Version](https://img.shields.io/cocoapods/v/SipHash.svg)](http://cocoapods.org/pods/SipHash)
@@ -117,7 +117,7 @@ Obviously, your mileage may vary.
 
 [Nicely formatted reference docs][docs] are available courtesy of [Jazzy].
 
-[docs]: https://lorentey.github.io/SipHash/
+[docs]: https://attaswift.github.io/SipHash/
 [Jazzy]: https://github.com/realm/jazzy
 
 ## Installation

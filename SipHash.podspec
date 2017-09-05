@@ -12,5 +12,5 @@ Pod::Spec.new do |spec|
     spec.source       = { :git => 'https://github.com/attaswift/SipHash.git', :tag => 'v' + String(spec.version) }
     spec.source_files = 'Sources/*.swift'
     spec.social_media_url = 'https://twitter.com/lorentey'
-    spec.documentation_url = 'http://lorentey.github.io/SipHash/'
+    spec.documentation_url = 'http://attaswift.github.io/SipHash/'
 end
