@@ -1,6 +1,6 @@
 # SipHash
 
-[![Swift 3.x, 4.0](https://img.shields.io/badge/Swift-3,%204-blue.svg)](https://swift.org) 
+[![Swift 4.0](https://img.shields.io/badge/Swift-4-blue.svg)](https://swift.org)
 [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/attaswift/SipHash/blob/master/LICENSE.md)
 [![Platform](https://img.shields.io/badge/platforms-macOS%20∙%20iOS%20∙%20watchOS%20∙%20tvOS%20∙%20Linux-blue.svg)](https://developer.apple.com/platforms/)
 
@@ -34,7 +34,7 @@ independent implementation that's available for use in third-party code.
 
 [stdlib]: https://github.com/apple/swift/blob/master/stdlib/public/core/SipHash.swift.gyb
 
-SipHash requires Swift 3.0.1. A prerelease variant that supports Swift 4 is available on the `swift4` branch.
+The current release of SipHash requires Swift 4.
 
 ## Sample Code 
 
@@ -127,7 +127,7 @@ Obviously, your mileage may vary.
 If you use CocoaPods, you can start using `SipHash` by including it as a dependency in your `Podfile`:
 
 ```
-pod 'SipHash', '~> 1.0'
+pod 'SipHash', '~> 1.2'
 ```
 
 ### Carthage
@@ -135,7 +135,7 @@ pod 'SipHash', '~> 1.0'
 For Carthage, add the following line to your `Cartfile`:
 
 ```
-github "attaswift/SipHash" ~> 1.0
+github "attaswift/SipHash" ~> 1.2
 ```
 
 ### Swift Package Manager
@@ -148,7 +148,7 @@ import PackageDescription
 let package = Package(
     name: "MyPackage",
     dependencies: [
-        .Package(url: "https://github.com/attaswift/SipHash.git", majorVersion: 1)
+        .Package(url: "https://github.com/attaswift/SipHash.git", from: "1.2.0")
     ]
 )
 ```

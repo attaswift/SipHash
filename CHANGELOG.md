@@ -1,3 +1,13 @@
+# Version 1.2.0 (2017-09-07)
+
+This release contains the following changes:
+
+* The package requires Swift 4.
+* `SipHasher` now has a method for appending slices of `UnsafeRawBufferPointer`s.
+* In the supplied Xcode project, bundle identifiers have been updated. The new ones start with `org.attaswift.`.
+
+Note that the URL for the package's Git repository has changed; please update your references.
+
 # Version 1.1.2 (2017-05-05)
 
 This release contains the following change:
