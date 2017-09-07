@@ -6,7 +6,6 @@
 
 [![Build Status](https://travis-ci.org/attaswift/SipHash.svg?branch=master)](https://travis-ci.org/attaswift/SipHash)
 [![Code Coverage](https://codecov.io/github/attaswift/SipHash/coverage.svg?branch=master)](https://codecov.io/github/attaswift/SipHash?branch=master)
-[![Documented](https://img.shields.io/cocoapods/metrics/doc-percent/SipHash.svg)](http://attaswift.github.io/SipHash)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPod Version](https://img.shields.io/cocoapods/v/SipHash.svg)](http://cocoapods.org/pods/SipHash)
