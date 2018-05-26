@@ -140,4 +140,12 @@ class SipHashTests: XCTestCase {
             }
         }
     }
+    //
+    // you have to manually register linux tests here :-(
+    //
+    static var allTests = [
+        ("testVectors", testVectors),
+        ("testSplits", testSplits),
+        ("testDefaultKey",  testDefaultKey),
+    ]
 }
