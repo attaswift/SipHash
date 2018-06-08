@@ -467,4 +467,26 @@ class PrimitiveTypeTests: XCTestCase {
 
         XCTAssertEqual(actual, expected)
     }
+    //
+    // you have to manually register linux tests here :-(
+    //
+    static var allTests = [
+      ("testBoolTrue",        testBoolTrue),
+      ("testInt",             testInt),
+      ("testUInt",            testUInt),
+      ("testInt64",           testInt64),
+      ("testUInt64",          testUInt64),
+      ("testInt32",           testInt32),
+      ("testUInt32",          testUInt32),
+      ("testInt16",           testInt16),
+      ("testUInt16",          testUInt16),
+      ("testInt8",            testInt8),
+      ("testUInt8",           testUInt8),
+      ("testFloat",           testFloat),
+      ("testDouble",          testDouble),
+      ("testFloat80",         testFloat80),
+      // ("testCGFloat",         testCGFloat), // missing in Linux
+      ("testOptional_nil",    testOptional_nil),
+      ("testOptional_nonnil", testOptional_nonnil),
+    ]
 }
