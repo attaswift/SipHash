@@ -56,4 +56,12 @@ class SipHashableTests: XCTestCase {
 
         XCTAssertEqual(hash1, hash2)
     }
+    //
+    // you have to manually register linux tests here :-(
+    //
+    static var allTests = [
+      ("testBookHashValue", testBookHashValue),
+      ("testBookEquality", testBookEquality),
+      ("testAddSipHashable", testAddSipHashable),
+    ]
 }
