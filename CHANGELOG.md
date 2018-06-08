@@ -1,3 +1,16 @@
+# Version 1.2.2 (2018-06-08)
+
+This release contains the following changes:
+
+* Fix some warnings for Swift 4.1.
+* Fix issues with `swift test` on Linux.
+
+# Version 1.2.1 (2018-05-27)
+
+This release contains the following change:
+
+* Fixed a bug which resulted in a compilation error for Swift 4.1 on Linux.
+
 # Version 1.2.0 (2017-09-07)
 
 This release contains the following changes:
@@ -26,7 +39,7 @@ This release contains the following changes:
 
 * `SipHasher` now supports appending optional values directly.
 * The deployment target for Carthage and standalone builds was set back to iOS 8.0 and macOS 10.9,
-  the earliest possible OS versions for Swift frameworks. This change does not affect CocoaPod builds, which 
+  the earliest possible OS versions for Swift frameworks. This change does not affect CocoaPod builds, which
   already had the same settings.
 
 # Version 1.0.0 (2016-11-15)

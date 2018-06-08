@@ -6,8 +6,8 @@
 //
 
 // Increment the build number whenever you modify the version string.
-VERSION_STRING = 1.2.0
-BUILD_NUMBER = 5
+VERSION_STRING = 1.2.2
+BUILD_NUMBER = 7
 
 PROJECT_NAME = SipHash
 BUNDLE_IDENTIFIER_BASE = org.attaswift.$(PROJECT_NAME)
