@@ -1,3 +1,10 @@
+# Version 1.2.2 (2018-06-08)
+
+This release contains the following changes:
+
+* Fix some warnings for Swift 4.1.
+* Fix issues with `swift test` on Linux.
+
 # Version 1.2.1 (2018-05-27)
 
 This release contains the following change:
