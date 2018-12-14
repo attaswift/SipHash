@@ -12,7 +12,7 @@ import PackageDescription
 let package = Package(
     name: "SipHash",
     products: [
-        .library(name: "SipHash", type: .dynamic, targets: ["SipHash"])
+        .library(name: "SipHash", targets: ["SipHash"])
     ],
     dependencies: [],
     targets: [
