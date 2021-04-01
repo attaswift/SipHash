@@ -10,6 +10,10 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
 [![CocoaPod Version](https://img.shields.io/cocoapods/v/SipHash.svg)](http://cocoapods.org/pods/SipHash)
 
+| :warning: WARNING          |
+|:---------------------------|
+| This package has been obsoleted by the [`Hasher` type and the `Hashable.hash(into:)` requirement](https://github.com/apple/swift-evolution/blob/master/proposals/0206-hashable-enhancements.md) introduced in Swift 4.2. Using this package in not recommended in modern Swift code; instead, simply implement the standard `Hashable`. (The standard library changes introduced in SE-0206 are sort of like a version 2 of this package.) |
+
 `SipHash` is a pure Swift implementation of the [SipHash] hashing algorithm designed by
 Jean-Philippe Aumasson and Daniel J. Bernstein in 2012:
 
@@ -71,6 +75,14 @@ let hash = hasher.finalize()
 ```
 
 ## Why Would I Use SipHash?
+
+Unless you're targeting an ancient Swift release (<4.2), you shouldn't use `SipHash`. This package is obsolete; it remains here for posterity and for compatibility only. Do not import it into new code.
+
+What follows is the original documentation, contrasting `SipHashable` to the original (now deprecated) `Hashable.hashValue` protocol requirement.
+
+Repeated for emphasis: **Do not import this package into newly written code.**
+
+* * *
 
 Writing a good implementation of `hashValue` is hard, even if we just need to combine the values of a couple of fields.
 We need to come up with a deterministic function that blends the field values well, producing a fixed-width
